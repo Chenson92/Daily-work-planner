@@ -24,14 +24,18 @@ timeBlock.each(function () {
 // use the id in the containing time-block as a key to save the user input in
 // local storage.
 
-saveBtnEl.on("click", function () {
+saveBtnEl.on("click", function (event) {
+  event.preventDefault();
   var buttonID = $(this).attr("id");
-  var textareaID = buttonID.split("btn").join("txt");
-  textareaID.text();
-
-  localStorage.setItem(buttonID);
+  //var textareaID = buttonID.split("btn").join("txt");
+  textValue = $(this).siblings(".description").val();
+  localStorage.setItem(buttonID, textValue);
 });
 
-function planValue() {
+function display() {
+  buttonID = saveBtnEl.attr("id");
+  textValue = saveBtnEl.siblings(".description").val();
   localStorage.getItem(buttonID);
+  var description = textValue.textContent;
+  display();
 }
