@@ -6,6 +6,6 @@ This is an application of Work Day Scheduler. It showcases the skills of using j
 
 ## Screenshot
 
-![work day scheduler](./assests/Screenshot.png)
+![work day scheduler](./Assests/Screenshot.png)
 
 ## Link
