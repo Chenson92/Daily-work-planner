@@ -9,3 +9,5 @@ This is an application of Work Day Scheduler. It showcases the skills of using j
 ![work day scheduler](./Assets/Screenshot.png)
 
 ## Link
+
+https://chenson92.github.io/Daily-work-planner/
