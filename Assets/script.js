@@ -34,5 +34,5 @@ function display() {
   textValue = saveBtnEl.siblings(".description").val();
   localStorage.getItem(buttonID);
   var description = textValue.textContent;
-  display();
 }
+display();
