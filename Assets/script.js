@@ -19,11 +19,7 @@ timeBlock.each(function () {
     $(this).addClass("past");
   }
 });
-
-//Add a listener for click events on the save button. This code should
-// use the id in the containing time-block as a key to save the user input in
-// local storage.
-
+// save button
 saveBtnEl.on("click", function (event) {
   event.preventDefault();
   var buttonID = $(this).attr("id");
@@ -32,6 +28,7 @@ saveBtnEl.on("click", function (event) {
   localStorage.setItem(buttonID, textValue);
 });
 
+//localStorage
 function display() {
   buttonID = saveBtnEl.attr("id");
   textValue = saveBtnEl.siblings(".description").val();
