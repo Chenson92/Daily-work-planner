@@ -1,3 +1,4 @@
+var saved = JSON.parse(window.localStorage.getItem("storageItem"));
 var timeBlock = $(".time-block");
 var saveBtnEl = $(".saveBtn");
 var currentTime = dayjs().format("HH");
@@ -19,20 +20,33 @@ timeBlock.each(function () {
     $(this).addClass("past");
   }
 });
+
 // save button
 saveBtnEl.on("click", function (event) {
   event.preventDefault();
-  var buttonID = $(this).attr("id");
-  //var textareaID = buttonID.split("btn").join("txt");
+  var textID = $(this).parent().attr("id");
   textValue = $(this).siblings(".description").val();
-  localStorage.setItem(buttonID, textValue);
+  var storageItem =
+    JSON.parse(window.localStorage.getItem("storageItem")) || [];
+  storageItem.push({ textID, textValue });
+  localStorage.setItem("storageItem", JSON.stringify(storageItem));
 });
 
 //localStorage
+$(".description").each(function () {
+  var ID = $(this).parent().attr("id");
+  console.log(ID);
+  console.log(saved);
+  for (let i = 0; i < saved.length; i++) {
+    console.log(ID, saved[i].textID);
+    if (ID == saved[i].textID) {
+      $(this).text(saved[i].textValue);
+    }
+  }
+});
 function display() {
   buttonID = saveBtnEl.attr("id");
   textValue = saveBtnEl.siblings(".description").val();
-  localStorage.getItem(buttonID);
   var description = textValue.textContent;
 }
 display();
